@@ -1,0 +1,212 @@
+<!-- subscription.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFinder - Subscription Plans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e50914;
+            --primary-dark: #b2070f;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --gray: #666;
+            --transition: all 0.3s ease;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--light));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: var(--transition);
+        }
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color var(--transition);
+        }
+        nav a:hover {
+            color: var(--primary);
+        }
+        .plans-header {
+        text-align: center;
+        /* increased height for longer banner */
+        padding: 6rem 1rem;
+        min-height: 40vh;
+        background-image: url('https://w0.peakpx.com/wallpaper/979/374/HD-wallpaper-dark-red-flame-with-black-background-red-aesthetic.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+        .plans-header h1 {
+            color: var(--light);
+            font-size: 2.5rem;
+        }
+        .container {
+            flex: 1;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .card {
+            background: var(--light);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform var(--transition), box-shadow var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+        }
+        .card-header {
+            background: var(--primary);
+            height: 6px;
+        }
+        .card-body {
+            padding: 1.5rem;
+            color: var(--dark);
+        }
+        .card-body h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+        }
+        .card-body p {
+            margin-bottom: 1rem;
+        }
+        .plans-list {
+            list-style: none;
+        }
+        .plans-list li {
+            margin: 0.5rem 0;
+        }
+        footer {
+            background: var(--primary);
+            color: var(--light);
+            text-align: center;
+            padding: 1rem;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="index.html" class="logo">StreamFinder</a></div>
+        <nav>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+    <section class="plans-header">
+        <h1>Subscription Plans</h1>
+    </section>
+    <div class="container">
+        <!-- Netflix -->
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <h2>Netflix</h2>
+                <p>Endless entertainment with original shows and movies</p>
+                <ul class="plans-list">
+                    <li>Standard with ads – $7.99/month</li>
+                    <li>Standard – $18.99/month</li>
+                    <li>Premium – $23.99/month</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Hulu -->
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <h2>Hulu</h2>
+                <p>Current TV episodes, live channels, and exclusive series</p>
+                <ul class="plans-list">
+                    <li>Hulu (No Ads) – $18.99 / month</li>
+                    <li>Hulu – $9.99 / month</li>
+                    <li>Hulu + Live TV – $82.99 / month</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Discovery+ -->
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <h2>Discovery+</h2>
+                <p>Dive into documentaries, nature, and reality programming</p>
+                <ul class="plans-list">
+                    <li>Monthly plan – $5.99</li>
+                    <li>Annual/Ad-Free Plan – $9.99</li>
+                </ul>
+            </div>
+        </div>
+        <!-- CuriosityStream -->
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <h2>CuriosityStream</h2>
+                <p>Fascinating science and history content for curious minds</p>
+                <ul class="plans-list">
+                    <li>Standard – CA$47.99</li>
+                    <li>Smart Bundle – CA$7</li>
+                    <li>Standard – CA$5</li>
+                    <li>Smart Bundle – CA$11</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 StreamFinder</p>
+    </footer>
+</body>
+</html>

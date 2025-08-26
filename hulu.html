@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hulu - StreamFinder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #e50914, #f5f5f5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #e50914;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+      padding: 4rem 2rem;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .genre-section {
+      margin-bottom: 3rem;
+    }
+
+    .genre-section h2 {
+      font-size: 2rem;
+      color: #e50914;
+      margin-bottom: 1rem;
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .show-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .show-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .show-card img {
+      width: 100%;
+      display: block;
+      height: 250px;
+      object-fit: fill;
+    }
+
+    .show-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      padding: 1rem;
+      color: #1a1a1a;
+    }
+
+    .show-card a {
+      display: block;
+      background-color: #e50914;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.8rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .show-card a:hover {
+      background-color: #b2070f;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #e50914;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">StreamFinder</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Hulu</h1>
+  </section>
+
+  <div class="container">
+    <!-- TV Shows -->
+    <section class="genre-section">
+      <h2>TV Shows</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://image.tmdb.org/t/p/w500/6tfT03sGp9k4c0J3dypjrI8TSAI.jpg" alt="The Handmaid's Tale"/>
+          <h3>The Handmaid's Tale</h3>
+          <a href="https://www.hulu.com/series/the-handmaids-tale-565d8976-9d26-4e63-866c-40f8a137ce5f">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/tpz9UQ3hUwYufNcKWVW00FCjWyc.jpg" alt="The Great"/>
+          <h3>The Great</h3>
+          <a href="https://www.hulu.com/series/the-great-238db0d4-c476-47ed-9bee-d326fd302f7d">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://image.tmdb.org/t/p/w500/oIkxqt6ug5zT5ZSUUyc1Iqopf02.jpg" alt="This Is Us"/>
+          <h3>This Is Us</h3>
+          <a href="https://www.hulu.com/series/this-is-us-9dc170da-85db-475d-9df4-6572f15ffb00">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/pEj6EyG0RiLup2lWVnhmBYya5AA.jpg" alt="Atlanta"/>
+          <h3>Atlanta</h3>
+          <a href="https://www.hulu.com/series/atlanta-3529d0f1-acaf-476d-8be3-66cd6bf12530?&cmp=7958&utm_source=google&utm_medium=cpc&utm_campaign=BM+Search+TV+Shows&utm_term=where%20can%20i%20watch%20atlanta&gad_source=1&gad_campaignid=16789500391&gbraid=0AAAAADoVW81_8g0GEYJWikjjRn1PJUNf-&gclid=Cj0KCQjw-NfDBhDyARIsAD-ILeD6EwqPsIljy_hRukJ52YlIkHtuUL0NyB3jUHRriwZsdKOm5tgPxuEaArvmEALw_wcB&gclsrc=aw.ds">Watch on Hulu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Movies -->
+    <section class="genre-section">
+      <h2>Movies</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/e9u7luSxFKOZgPTB9XHFnPArGdP.jpg" alt="Dumb Money"/>
+          <h3>Dumb Money</h3>
+          <a href="https://www.hulu.com/movie/dumb-money-01a1acb3-e983-40f3-84e8-3e24aa9a489b">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/yf5IuMW6GHghu39kxA0oFx7Bxmj.jpg" alt="Palm Springs"/>
+          <h3>Palm Springs</h3>
+          <a href="https://www.hulu.com/movie/palm-springs-f70dfd4d-dbfb-46b8-abb3-136c841bba11">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/ilHG4EayOVoYeKqslspY3pR4wzC.jpg" alt="Run"/>
+          <h3>Run</h3>
+          <a href="https://www.hulu.com/movie/run-72eec9c8-0164-4e0c-868a-b433960d7f93">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg" alt="Parasite"/>
+          <h3>Parasite</h3>
+          <a href="https://www.hulu.com/movie/parasite-2fd691a0-f66b-467f-8635-00d7f151f3d4">Watch on Hulu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentaries -->
+    <section class="genre-section">
+      <h2>Documentaries</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/jeeHE4gDErwulQ9UJjHeLAzV1TG.jpg" alt="Fyre Fraud"/>
+          <h3>Fyre Fraud</h3>
+          <a href="https://www.hulu.com/movie/fyre-fraud-e47078f3-1c0e-49a8-9da9-c571a7a20fec">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/uOu2YgrryHD1UlngykzTodAxGdC.jpg" alt="Minding the Gap"/>
+          <h3>Minding the Gap</h3>
+          <a href="https://www.hulu.com/movie/minding-the-gap-efcd9be9-9541-46b4-abbc-dd8b0606b304">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/v4QfYZMACODlWul9doN9RxE99ag.jpg" alt="Free Solo"/>
+          <h3>Free Solo</h3>
+          <a href="https://www.hulu.com/movie/free-solo-5bc87ba3-cda0-4f46-b81c-4c3ea170e9d1">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/xTCduzgBJ57ZzMM9MOyBPpauB9t.jpg" alt="I Am Greta"/>
+          <h3>I Am Greta</h3>
+          <a href="https://www.hulu.com/movie/i-am-greta-6eb88d15-22f0-4f7b-90aa-6933ddc2f90a">Watch on Hulu</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Originals -->
+    <section class="genre-section">
+      <h2>Originals</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/vb1sQLC2MqfCPOFqHd8SyVsyDVB.jpg" alt="The Act"/>
+          <h3>The Act</h3>
+          <a href="https://www.hulu.com/series/the-act-8cc910fe-b59e-46a5-9966-16c4e0ed208d">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/6UijftiNULSMEMPEDaYtI8C7dFh.jpg" alt="Shrill"/>
+          <h3>Shrill</h3>
+          <a href="https://www.hulu.com/series/shrill-54eab813-3a9b-496d-9d7e-908597ad8d1a">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/6dnUpv9ghx84pgxlMOb4uuJrWDs.jpg" alt="Castle Rock"/>
+          <h3>Castle Rock</h3>
+          <a href="https://www.hulu.com/series/castle-rock-b11816c9-9e35-44f3-bf04-220b1d12f770">Watch on Hulu</a>
+        </div>
+        <div class="show-card">
+  		  <img src="https://www.themoviedb.org/t/p/w1280/7EQQMl0mp8L0hMxAUZNfoCh1Tkb.jpg" alt="Little Fires Everywhere">
+  		  <h3>Little Fires Everywhere</h3>
+  		  <a href="https://www.hulu.com/series/little-fires-everywhere-bce24897-1a74-48a3-95e8-6cdd530dde4c">Watch on Hulu</a>
+		</div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 StreamFinder. All rights reserved.</p>
+    <p>
+      <a href="#">About Us</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </footer>
+</body>
+</html>

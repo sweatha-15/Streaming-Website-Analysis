@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>StreamFinder – Search Results</title>
+  <style>
+    body { margin:0; font-family:sans-serif; background:#f5f5f5; }
+    header { background:#000; padding:1rem; }
+    header nav {
+      display:flex; justify-content:space-between; align-items:center;
+    }
+    header nav .logo { color:#e50914; font-size:1.5rem; text-decoration:none; }
+    header nav .home-link { color:#fff; text-decoration:none; }
+    header nav .home-link:hover {
+      color:#e50914; text-decoration:underline;
+    }
+
+    .container { max-width:1000px; margin:2rem auto; padding:0 1rem; }
+    #searchTitle { margin-bottom:1rem; }
+
+    .search-bar {
+      display:flex; background:#ffeaea; border-radius:50px;
+      padding:.5rem 1rem; align-items:center; gap:.5rem; margin-bottom:2rem;
+    }
+    .search-bar input {
+      flex:1; border:none; background:transparent;
+      font-size:1rem; outline:none; padding:.5rem 1rem;
+    }
+    .search-bar button {
+      background:#e50914; color:#fff; border:none;
+      padding:.6rem 1.2rem; border-radius:30px; cursor:pointer;
+    }
+    .search-bar button:hover { background:#b20710; }
+
+    .shows-grid {
+      display:grid;
+      grid-template-columns: repeat(3,1fr);
+      gap:1.5rem;
+      margin-bottom:2rem;
+    }
+    @media(max-width:900px) {
+      .shows-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media(max-width:600px) {
+      .shows-grid { grid-template-columns: 1fr; }
+    }
+
+    /* .show-card {
+      background:#fff; border-radius:10px; overflow:hidden;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:transform .2s;
+    } */
+    .show-card:hover { transform:scale(1.03); }
+
+    .show-card img {
+      width:100%; height:180px; object-fit:cover; display:block; background:#eee;
+    }
+    /* .show-card h3 { margin:0.5rem 1rem 0; font-size:1.2rem; } */
+    .show-card .genre { margin:0 1rem 1rem; color:#666; font-size:.9rem; }
+    .show-card .watch-link {
+      display:block; padding:.75rem; text-align:center;
+      background:#e50914; color:#fff; text-decoration:none; font-weight:bold;
+    }
+    .show-card .watch-link:hover { background:#b20710; }
+
+    /* .pagination {
+      text-align:center;
+      margin-bottom:2rem;
+    }
+    .pagination button {
+      background:#e50914; color:#fff; border:none;
+      padding:.5rem 1rem; margin:0 .25rem; cursor:pointer;
+      border-radius:5px;
+    }
+    .pagination button[disabled] {
+      background:#ccc; cursor:default;
+    } */
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+      gap: 1rem;
+    }
+    .pagination button {
+      background:#e50914;
+      color:#fff;
+      border:none;
+      padding:.5rem 1rem;
+      border-radius:5px;
+      cursor:pointer;
+      margin:0 .25rem;
+    }
+    .pagination button[disabled] {
+      background:#ccc;
+      cursor:default;
+    }
+    #resultsContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+   /* 2) Base card style */
+   .show-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .show-card.subscription,
+  .show-card.best-plan {
+    border-top: 6px solid #e50914;
+  }
+  .show-card h3,
+  .show-card h2 {
+    margin: 0;
+    padding: 1rem;
+    color: #e50914;
+    font-size: 1.5rem;
+  }
+
+  /* 5) Text block style */
+  .show-card p {
+    flex: 1;
+    margin: 0 1rem 1rem;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">StreamFinder</a>
+      <a href="index.html" class="home-link">Home</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1 id="searchTitle">Search Results</h1>
+
+    <div class="search-bar">
+      <input id="searchInput" type="text" placeholder="Search for streaming services…" autocomplete="off"/>
+      <button id="searchBtn">Search</button>
+    </div>
+
+    <div class="shows-grid" id="resultsContainer"></div>
+
+    <div class="pagination" id="paginationControls">
+      <button id="prevPage">Previous</button>
+      <span id="pageInfo"></span>
+      <button id="nextPage">Next</button>
+    </div>
+  </div>
+
+  <script src="js/PageRanking.js"></script>
+</body>
+</html>
+

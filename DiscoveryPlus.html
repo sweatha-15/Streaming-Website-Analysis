@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discovery+ - StreamFinder</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #e50914, #f5f5f5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #e50914;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&h=1080&fit=crop') center center/cover no-repeat;
+      padding: 4rem 2rem;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .genre-section {
+      margin-bottom: 3rem;
+    }
+
+   .genre-section h2 {
+      font-size: 2rem;
+      color: #e50914;
+      margin-bottom: 1rem;
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .show-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+display: flex;
+  flex-direction: column;
+  height: 100%;
+
+    }
+
+    .show-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+     .show-card img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      object-fit: cover;
+    }
+
+     .show-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      padding: 1rem;
+      color: #1a1a1a;
+ flex-grow: 1;
+    }
+
+   .show-card a {
+      display: block;
+      background-color: #e50914;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.8rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+     .show-card a:hover {
+      background-color: #b2070f;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #e50914;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">StreamFinder</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Discovery+</h1>
+  </section>
+
+  <div class="container">
+
+    <!-- TV Shows -->
+    <section class="genre-section">
+      <div class="genre-header">
+        <h2>TV Shows</h2>
+      </div>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/aqF7wHfA2n89zbBqG6DLuDjrHut.jpg" alt="Deadliest Catch"/>
+          <h3>Deadliest Catch</h3>
+          <a href="https://www.discoveryplus.com/show/deadliest-catch">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/zRlu3idMmqfrtnw7h2qHaAGzxnw.jpg" alt="Gold Rush"/>
+          <h3>Gold Rush</h3>
+          <a href="https://www.discoveryplus.com/show/gold-rush">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/UFdM8UDa9oSZrgSpQRORLH1Zqb.jpg" alt="Alien Endgame"/>
+          <h3>Alien Endgame</h3>
+          <a href="https://www.discoveryplus.com/movies/alien-endgame/e1166e39-4f6e-4ec0-b957-9e9d6f06cc27">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/plV0HqZs3nHW8PhaLzV18puxtP2.jpg" alt="Naked and Afraid"/>
+          <h3>Naked and Afraid</h3>
+          <a href="https://www.discoveryplus.com/show/naked-and-afraid">Watch on Discovery+</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Movies -->
+    <section class="genre-section">
+      <div class="genre-header">
+        <h2>Movies</h2>
+      </div>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/jyJ7lRbh4QD6EOL2ARRZr5y3OAT.jpg" alt="Filthy Fortunes"/>
+          <h3>Filthy Fortunes</h3>
+          <a href="https://www.discoveryplus.com/shows/filthy-fortunes/a533ce9d-761c-4876-a2e5-d5ca00014558">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/jWiGyXcggMfZ0EJor3PwTKnlDBL.jpg" alt="The Idaho College Murders"/>
+          <h3>The Idaho College Murders</h3>
+          <a href="https://www.discoveryplus.com/movies/idaho-college-murders/6bd752fc-7bfd-4ccb-9ebb-74691876623c">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/73lGVWz7apbHBwMbXTJKDYnkkS2.jpg" alt="The Freeway Killer: Lost Murder Tapes"/>
+          <h3>The Freeway Killer: Lost Murder Tapes</h3>
+          <a href="https://www.discoveryplus.com/ca/fr/movies/freeway-killer-lost-murder-tapes/33f826c3-177b-4846-a2e9-5d3a2c30c2ce">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/2X6ZvE17a91nXeL0UNomwcWfnf.jpg" alt="Haunting in The Heartland"/>
+          <h3>Haunting in The Heartland</h3>
+          <a href="https://www.discoveryplus.com/show/haunting-in-the-heartland">Watch on Discovery+</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentaries -->
+    <section class="genre-section">
+      <div class="genre-header">
+        <h2>Documentaries</h2>
+      </div>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/pbjHg2jpyztRoeBNUDwzxPOzllL.jpg" alt="I Was Prey: Shark Week"/>
+          <h3>I Was Prey: Shark Week</h3>
+          <a href="https://www.discoveryplus.com/movies/i-was-prey-shark-week/b57607d4-4621-4863-8da6-ca7daca53e7e">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/3fknFoz9o7RLzsBngvegoQE7xU5.jpg" alt="The Green River Killer: Mind of a Monster"/>
+          <h3>The Green River Killer: Mind of a Monster</h3>
+          <a href="https://www.discoveryplus.com/movies/green-river-killer-mind-of-a-monster/b127a00a-9f00-4afb-922d-d205e788326c">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/wEOmI1SBfPZvqk6Yqvo4JpVcOV0.jpg" alt="Body Cam: EMT"/>
+          <h3>Body Cam: EMT</h3>
+          <a href="https://www.discoveryplus.com/shows/body-cam/8931dfbf-d113-43de-8ee2-43bb594330d1">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/4OiM6apNckkqo04I7TO5VmQl65R.jpg" alt="Expedition Unknown"/>
+          <h3>Expedition Unknown</h3>
+          <a href="https://www.discoveryplus.com/show/expedition-unknown">Watch on Discovery+</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Originals -->
+    <section class="genre-section">
+      <div class="genre-header">
+        <h2>Originals</h2>
+      </div>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://media.themoviedb.org/t/p/w600_and_h900_bestv2/wJVDf4ZysdxhoREQIHlOM4phRNp.jpg" alt="90 Day Fiancé"/>
+          <h3>90 Day Fiancé</h3>
+          <a href="https://www.discoveryplus.com/show/90-day-fiance">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/efJbNC1LJ3Xd5fCelhaOxD3Pr2u.jpg" alt="Home Town Takeover"/>
+          <h3>Home Town Takeover</h3>
+          <a href="https://www.discoveryplus.com/show/home-town-takeover">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/jCNJhaPmm0a4btwOnvnpyfdFO4J.jpg" alt="Fixer Upper"/>
+          <h3>Fixer Upper: Welcome Home</h3>
+          <a href="https://www.discoveryplus.com/show/fixer-upper-welcome-home">Watch on Discovery+</a>
+        </div>
+        <div class="show-card">
+          <img src="https://www.themoviedb.org/t/p/w1280/bGoyrebgE8IwBiead6vI43jN2uh.jpg" alt="Louisiana Law"/>
+          <h3>Louisiana Law</h3>
+          <a href="https://www.discoveryplus.com/shows/louisiana-law/c83835f3-768f-4494-8efb-c6c88ec9957a">Watch on Discovery+</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 StreamFinder. All rights reserved.</p>
+    <p>
+      <a href="#">About Us</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </footer>
+
+</body>
+</html>

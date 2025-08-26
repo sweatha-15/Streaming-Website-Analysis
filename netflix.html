@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Netflix - StreamFinder</title>
+  <link rel="stylesheet" href="https://wallpapers.com/images/high/netflix-background-6eijmcazwfrb9u6w.webp"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #1a1a1a;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: linear-gradient(45deg, #e50914, #f5f5f5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      transition: all 0.3s ease;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      color: #e50914;
+    }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center center/cover no-repeat;
+      padding: 4rem 2rem;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .hero h1 {
+      position: relative;
+      z-index: 1;
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .genre-section {
+      margin-bottom: 3rem;
+    }
+
+    .genre-section h2 {
+      font-size: 2rem;
+      color: #e50914;
+      margin-bottom: 1rem;
+    }
+
+    .shows-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .show-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .show-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .show-card img {
+      width: 100%;
+      display: block;
+      height: 180px;
+      object-fit: cover;
+      background-color: #e0e0e0;
+    }
+
+    .show-card h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      padding: 1rem;
+      color: #1a1a1a;
+      flex-grow: 1;
+    }
+
+    .show-card a {
+      display: block;
+      background-color: #e50914;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.8rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      margin-top: auto;
+    }
+
+    .show-card a:hover {
+      background-color: #b2070f;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: #e50914;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .image-attribution {
+      font-size: 0.7rem;
+      color: #666;
+      text-align: center;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">StreamFinder</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Netflix</h1>
+  </section>
+
+  <div class="container">
+    <!-- TV Shows -->
+    <section class="genre-section">
+      <h2>TV Shows</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTqyIaor6_X4hu_IsNYkoSXlMHWs0gNBxdcNRZwyM7XvAsvr4hzGKnWwnIYYmtJrkidOZn88V1gekrQIVXn5gMaJzldt6Dp7ZW4jYdYmo02ZqCbnoYnpIUA5BS_OwZP17LjCO_N9dE8WFLx1WakPENMR8576vvFq9teFZTBlHFKewDuoHJDmBnmC1RRPvy8mabMIE3dsvR3jtn-9ethpGKQPFuDZS9KVE_8hnjcLa3MD09ExzxNlD1NIL7mUpw.jpg?r=dd2" alt="Squid Game">
+          <div class="show-content">
+          <h3>Squid Game</h3>
+          <a href="https://www.netflix.com/ca/title/81040344">Watch on Netflix</a>
+          </div>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb509jgLJkqO_KEMFctI9a392FQn1JO_79UNnAikFssW1DtGhoN37IAAcaXSkWtA9NwxFk-jf1z4QeiOstBM32EfLlwyYVjD3IM0__l7qgF4ZCXZI7ACthd8PzmZez-MJxzH.jpg?r=4f9" alt="Emily in Paris">
+          <div class="show-content">
+          <h3>Emily in Paris</h3>
+          <a href="https://www.netflix.com/ca/title/81037371">Watch on Netflix</a>
+          </div>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdQIyi8aI7h3Ja96Gaqu1BMZ6UMgQyYtBMV-Ask_5oiUvR8TX1UAf1GEYsIEfPcee6oG-uYXdQ67LtGIC6UTU1C1xeEI_lv0vBA.jpg?r=563" alt="Young Sheldon">
+          <div class="show-content">
+          <h3>Young Sheldon</h3>
+          <a href="https://www.netflix.com/ca/title/80192612">Watch on Netflix</a>
+          </div>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABc5URtqG36cHmUzXPrn9qaN1prCdZB3Llrhe8w4fvPKUxMp1phgN738mP1ctTe9QshMH8f0NlK-GdSAZDYJpXtvofUffd8o4BQuB7AKZogG-KbG0kR5H5w9kp3pXbogjGHSN.jpg?r=082" alt="Wednesday">
+          <div class="show-content">
+          <h3>Wednesday</h3>
+          <a href="https://www.netflix.com/ca/title/81231974">Watch on Netflix</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Movies -->
+    <section class="genre-section">
+      <h2>Movies</h2>
+      <div class="shows-grid">
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABeaLlWXOysY5EswxjlFAVmyzpARma-GQKqiaA19rUMlRpr-NYkObI66e2q7-y2kulxv8Uol0M7F72gqGUmAWXlntDRoh1v-LKKQ.jpg?r=53c" alt="It Takes Two">
+          <h3>It Takes Two</h3>
+          <a href="https://www.netflix.com/ca/title/60022502">Watch on Netflix</a>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABTTSLiKqczKMzNwQ9cQY2-L7E-aom8-QEf64g61YKvq8LqR9ldjAUIfTtNXtX-JjtYyDccnFfzHsPGOEAE10jVGcC79veMZ4b7x7XoSWLyietFYK3UaTHfSodibfwY36FTo0ax60Afn1xKxWfM5H1rkbabuN2RVmSd0.jpg?r=a73" alt="Storks">
+          <h3>Storks</h3>
+          <a href="https://www.netflix.com/ca/title/80103727">Watch on Netflix</a>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABfYqitTYL2_yQlfQm_5LLV5htXvcvOVVN910pnPH0XXDKq-2UF58s1IVy3ZAP5wc-I_NBKDwXEh9sD-8A3GlyptwYV9qHOnSWbAXWG9oA2R7AgaW6zc5O63wtsdeG81ikXuDKxu5fqas7FYdWBPrklcvoucjbPkgckHfGEzcrEr0.jpg?r=dd6" alt="And The Breadwinner Is...">
+          <h3>And The Breadwinner Is...</h3>
+          <a href="https://www.netflix.com/ca/title/81901876">Watch on Netflix</a>
+        </div>
+        <div class="show-card">
+          <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABaY0hc2KhVcUDGWnLqVmIeAp5YZcyQA9SZBwDFBpuBtp7Fj00Kw0PDh3jSYJ7bWIRZDbHyvdZfP1a_HcOCpuWR1NuuYdsrYm60Q.jpg?r=b06" alt="Barbie">
+          <h3>Barbie</h3>
+          <a href="https://www.netflix.com/ca/title/80157969">Watch on Netflix</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentaries -->
+<section class="genre-section">
+    <h2>Documentaries</h2>
+    <div class="shows-grid">
+      <div class="show-card">
+        <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABXVxyDkSWiUH89k30cdcXk2izQRKMmPoCjRo9_olHkoQ77HDqqlR_ZNOEQhoQ5UKTn-JuC19PJ1uWSDC4t_3UJ6O1KC6f5XfwA3bOGQloTdBfA7zpacJxs2xoDJpR0yb3Z8uesmukCdibozHgbk2vWbZnDXj_U-EpJGwM7CJfEe2yg2gEgO0yWUqMRpWT7V95w-ZpvB3.jpg?r=333" alt="Titan: The OceanGate Submersible Disaster">
+        <h3>Titan: The OceanGate Submersible Disaster</h3>
+        <a href="https://www.netflix.com/ca/title/81712178">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABYErj8PWP5cw11NIaAyg0AFxJeCRuG8lhrRi7QEoKQUns4p728EGHU_ytANdBiDEjEO6MkH6V3Gphkp-6zNkwIOI4bAFXDLseGKBqM_JwaJRfIItsHSXI36LL9rcOQtVgJ1XEA4UNH2Hq-bhtJtZe_oB5XZMGl-pGTOVn356aejAhlVtHtQNf65E7755SZc.jpg?r=426" alt="All the Sharks">
+        <h3>All the Sharks</h3>
+        <a href="https://www.netflix.com/ca/title/81711583">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABSO2SpJMcDdGOw4lMeZHAHXHd0htL5TzXQa5ViOl8XC0p6KBjLoimb9jjS87Rk4WSsdUunFZu0D24vWy7w9dC8YVhK_kUnOndHjzttjBfnKrip3m6fVhBx8wbQu575pKwUsr.jpg?r=4ba" alt="Life on Our Planet">
+        <h3>Life on Our Planet</h3>
+        <a href="https://www.netflix.com/ca/title/80213846">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-724-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABXI2CT0OmEOWLoqum53MkFDou80EgMdE3pG2r55Q2CCLwH1y61e4ZBZLw9YTjjn3y_a_yiYIFqgaUxL2toNHU-g6HMKkFjDj4YC3yyfeQPjWDyRNg8_agG3bR8QB1bsvb4O-7V4WjOXzkcmvwvUwRegcPl7EmU-MRfp_Z0RdcyotW4Q0Mq2zGzDgiBLWnlvMuGqHfKHR.jpg?r=ee6" alt="Cocaine Air: Smugglers at 30,000 Ft.">
+        <h3>Cocaine Air: Smugglers at 30,000 Ft.</h3>
+        <a href="https://www.netflix.com/ca/title/81614967">Watch on Netflix</a>
+      </div>
+    </div>
+  </section>  
+
+  <!-- Anime -->
+<section class="genre-section">
+    <h2>Anime</h2>
+    <div class="shows-grid">
+      <div class="show-card">
+        <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABSJxHNHSw-ssIRnrnVn0EZ9_rXdnc5G6K6yO8gDEF3oDb8PsafC3e0nuR8a2Wnel2iuLoAT3U3TnK6nzTrT9oy3ikpkhnRc3QxGgWxfwAfdLaHeZj7Nodb_bKDXIuaQTkQghUwRo53-G8pG419lJo7hi1td47XqaANZlaORDaInCSrCuzlT26u5xycvbgenJLAy_8RwiDpK9V810azpnOa0XWVQ6UGRv926slAeOeA1OBNMlRQtiSA7Y9XkiA6xOdtXxjlGzRcjcvBOy_m9XG61VA7jFfoR_0pLIZ-bb0TLVxxCJKBeDD7ev5dGs.jpg?r=fcc" alt="ONE PIECE">
+        <h3>ONE PIECE</h3>
+        <a href="https://www.netflix.com/ca/title/80107103">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABVTc8b2MDbOG79wxqwEyARxHpd2w3wlKbXCCdrziH49A3g74J5sCr4Dskm97KeauGN2TNqdF7FvoHYIxiv42I4mwUnWtYUHruhQ.jpg?r=739" alt="Jujutsu Kaisen">
+        <h3>Jujutsu Kaisen</h3>
+        <a href="https://www.netflix.com/ca/title/81278456">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABaCC0LmSovKE1ji0XhC4EGzgtyg2QsG-iDKZ-5X7afHqX-leCm-WLoE0FLE921rKEmqu9hXMfblFBZhSAcmgh-srjL6BA2RwWJs.jpg?r=888" alt="Haikyu!!">
+        <h3>Haikyu!!</h3>
+        <a href="https://www.netflix.com/ca/title/80090673">Watch on Netflix</a>
+      </div>
+      <div class="show-card">
+        <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABboIljTGUoUqQxTsY1-hIqv-eK3ZXTdrhIPQ3RLGktepynTgAv7xszEn3VS0d-JzZe066GVqOcIlbFvFMUUXX-Bua9GUmVySIM0.jpg?r=aff" alt="Fullmetal Alchemist: Brotherhood">
+        <h3>Fullmetal Alchemist: Brotherhood</h3>
+        <a href="https://www.netflix.com/ca/title/70204981">Watch on Netflix</a>
+      </div>
+    </div>
+  </section>  
+
+    <section class="genre-section">
+        <h2>Only on Netflix</h2>
+        <div class="shows-grid">
+          <div class="show-card">
+           <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABR_s-niF2UcDpsm8xqJjCihjaUfukLwkQ0heoeeGDVislDT7J05pIJRpioXaU-gfJiR6c7DobHH7K3gR0b7-H800aBhJhnd_8vtOPzS7KwqDdSTlOvnTKxkSNexh2wGLwgm_.jpg?r=f50" alt="The Life List">
+           <h3>The Life List</h3>
+           <a href="https://www.netflix.com/ca/title/81246107">Watch on Netflix</a>
+          </div>
+          <div class="show-card">
+            <img src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABQZLuxrOA0rcuy0F8NSbljSlbZPxK_DTry5Mkn6DY6d3tydE_Z3yifFfS5n8qfJ7IV4jZyIV_3NtLPcmArTdMw7c-HUAmrA1jlvVFSJYHucMDPOHF3_G_xKY33g3bepeNUbEMpRCKYhzTcB2y_uILo-3-vDjr3PDe7NOxQuCmf5oU5YI5oUlk6X1HMnf6yWGdFgn_BSYqbHFDRlLzCSRevsfTxC9tWWpAlLkjoiBckDKeWpoakUIZfUl1c2cFZAUu_A.jpg?r=3fa" alt="Trainwreck: Poop Cruise">
+            <h3>Trainwreck: Poop Cruise</h3>
+            <a href="https://www.netflix.com/ca/title/81763679">Watch on Netflix</a>
+           </div>
+          <div class="show-card">
+            <img class="nm-collections-title-img" src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABSysf4q9oLfgM2U-DLbeO7LuMe9vsu5LZKEZ9-TMFiXXm4anM_bJbqQHRevb8CzEPuMnZsr5NXUEp26WnaUHPTTxet53-Sxif1QNfCTcqfk_IeXGBKv6LnIVBENrm24e0xTW.jpg?r=e2e" alt="Monsters">
+            <h3>Monsters</h3>
+            <a href="https://www.netflix.com/ca/title/81665094">Watch on Netflix</a>
+          </div>
+          <div class="show-card">
+            <img class="nm-collections-title-img" src="https://occ-0-858-90.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABY9MbR1kXcEjxQ3339N7chhCF9aaFDaQ7rvuYwI5RnTlNgAk1BmGN4tYZCxNuoOIivaRl-Z_siJeRMoBFisErN7PnAT1Q-eL5Ld8etFRR3K25MLAcI7jeOkkEuXbtOaOen-Z.jpg?r=400" alt="Alice in Borderland">
+            <h3>Alice in Borderland</h3>
+            <a href="https://www.netflix.com/ca/title/80200575">Watch on Netflix</a>
+          </div>
+        </div> 
+  </section> 
+
+  <footer>
+    <p>&copy; 2025 StreamFinder. All rights reserved.</p>
+    <p>
+      <a href="#">About Us</a> |
+      <a href="#">Contact</a> |
+      <a href="#">Privacy Policy</a>
+    </p>
+  </footer>
+</body>
+</html>

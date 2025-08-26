@@ -1,0 +1,787 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFinder - Discover Your Next Favorite Streaming Service</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #e50914;
+            --primary-dark: #b2070f;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --gray: #666;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        header {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), #f5f5f5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+            transition: var(--transition);
+            display: inline-block;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .search-container {
+  width: 100%;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, rgba(229,9,20,0.1), rgba(26,26,26,0.1));
+  display: flex;
+  justify-content: center;
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-bar {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: white;
+  border-radius: 50px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  overflow: hidden;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+
+.input-wrapper button {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+.input-wrapper button:hover {
+  background-color: #b20710;
+}
+
+.suggestions-box {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-top: none;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  display: none;
+  border-radius: 0 0 10px 10px;
+}
+
+.suggestions-box .suggest-item {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.suggestions-box .suggest-item:hover {
+  background-color: #f0f0f0;
+}
+
+.arrow-count {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.results-container {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.result-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 1rem;
+  width: 250px;
+}
+
+.result-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+}
+
+.result-card .genre {
+  font-style: italic;
+  color: #666;
+  margin: 0.3rem 0;
+}
+
+.result-card .watch-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background: #e50914;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.result-card .watch-link:hover {
+  background: #b20710;
+}
+        
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0 auto 2rem;
+            color: rgba(255,255,255,0.9);
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 1rem;
+            transition: var(--transition);
+            animation: fadeInUp 1s ease 0.4s forwards;
+            opacity: 0;
+            box-shadow: 0 4px 15px rgba(229,9,20,0.4);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(229,9,20,0.6);
+        }
+        
+        /* .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            padding: 0 2rem 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        } */
+        .services {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        gap: 2rem;
+        padding: 0 2rem 3rem;
+        max-width: 900px;
+        margin: 0 auto;
+        }
+
+        
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            width: 100%;
+            max-width: 350px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .service-card p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .service-button:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(229,9,20,0.4);
+        }
+        /* Add these styles to your existing CSS */
+.loading {
+    font-size: 1.2rem;
+    color: var(--primary);
+    animation: pulse 1.5s infinite;
+}
+
+.rank-badge {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+            transform: translateY(-5px) scale(1.2);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalFadeIn 0.3s ease;
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+        
+        .close-btn:hover {
+            color: var(--primary);
+            transform: rotate(90deg);
+        }
+        
+        .modal-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--dark);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(229,9,20,0.2);
+        }
+        /* Styling for error message */
+.error-message {
+    color: red;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Highlight invalid email field */
+input:invalid {
+    border: 1px solid red;
+}
+
+/* Valid email field */
+.validEmail:valid {
+    border: 1px solid green;
+}
+
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(229,9,20,0.4);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 1rem;
+            color: var(--gray);
+        }
+        
+        .form-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+             
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .search-bar {
+                width: 95%;
+            }
+            
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">StreamFinder</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#" id="loginLink">Login</a></li>
+                <li><a href="#" id="registerLink">Register</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+      <div class="search-container">
+        <div class="search-wrapper">
+          
+          <!-- Search bar with suggestions -->
+          <div class="search-bar">
+            <div class="input-wrapper">
+              <input id="searchInput" type="text" placeholder="Search for streaming services..." autocomplete="off">
+              <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="suggestions" class="suggestions-box"></div>
+          </div>
+      
+          <!-- Frequency result -->
+          <div id="result" class="arrow-count">
+            <svg fill="#000000" width="30px" height="24px" viewBox="0 0 31.843 31.842">
+              <g>
+                <path d="M31.843,7.546c0.006-0.389-0.146-0.764-0.418-1.042c-0.271-0.277-0.646-0.433-1.035-0.433h-6.396
+                  c-0.181,0-0.344,0.109-0.413,0.276c-0.067,0.167-0.028,0.359,0.099,0.487l1.233,1.232c0.195,0.194,0.306,0.457,0.306,0.732
+                  c0,0.274-0.108,0.538-0.305,0.732l-6.26,6.257c-0.536,0.537-1.405,0.537-1.939,0l-4.039-4.039c-0.239-0.239-0.562-0.373-0.9-0.373
+                  s-0.662,0.134-0.901,0.373L0.372,22.245c-0.496,0.498-0.496,1.305,0,1.803L1.726,25.4c0.239,0.239,0.562,0.372,0.9,0.372
+                  c0.338,0,0.661-0.133,0.9-0.37l7.277-7.276c0.536-0.535,1.405-0.535,1.94,0l3.968,3.969c0.258,0.256,0.605,0.399,0.971,0.399
+                  s0.715-0.146,0.973-0.399l9.416-9.417c0.193-0.194,0.457-0.303,0.73-0.303c0.274,0,0.539,0.109,0.731,0.304l1.453,1.457
+                  c0.127,0.127,0.316,0.166,0.484,0.099c0.166-0.067,0.273-0.228,0.279-0.407L31.843,7.546z"/>
+              </g>
+            </svg>
+            <span id="frequencyCount" style="font-size: 20px;">0</span>
+          </div>
+        </div>
+      </div>             
+      <div id="resultsContainer" class="results-container"></div>
+      <script>
+        // Remove any saved query so the input never “sticks”
+        localStorage.removeItem("searchQuery");
+        // Reset the visible input (in case localStorage isn’t the culprit)
+        const inp = document.getElementById("searchInput");
+        if (inp) inp.value = "";
+      </script>
+        
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Your Next Favorite Streaming Service</h1>
+            <p>Explore popular streaming platforms and find the perfect fit for your entertainment needs. From blockbuster hits to fascinating documentaries—there's something here for everyone.</p>
+            <a href="SubscriptionPlan.html" class="cta-button">Get Started</a>
+        </div>
+    </section>
+    
+    <div class="services">
+        <div class="service-card">
+            <h3>Netflix</h3>
+            <p>Endless entertainment with original shows and movies</p>
+            <!-- <button class="service-button">Explore</button> -->
+            <!-- <a href="netflix.html" class="service-button">Explore</a> -->
+            <a href="netflix.html" class="service-button">Explore</a>
+
+
+        </div>
+        
+        <div class="service-card">
+            <h3>Hulu</h3>
+            <p>Current TV episodes, live channels, and exclusive series</p>
+            <a href="hulu.html" class="service-button">Explore</a>
+            <!-- <button class="service-button">Explore</button> -->
+        </div>
+        
+        <div class="service-card">
+            <h3>Discovery+</h3>
+            <p>Dive into documentaries, nature, and reality programming</p>
+            <a href="DiscoveryPlus.html" class="service-button">Explore</a>
+            <!-- <button class="service-button">Explore</button> -->
+        </div>
+        
+        <div class="service-card">
+            <h3>CuriosityStream</h3>
+            <p>Fascinating science and history content for curious minds</p>
+            <a href="CuriosityStream.html" class="service-button">Explore</a>
+            <!-- <button class="service-button">Explore</button> -->
+        </div>
+    </div>
+    
+ <!-- Login Modal -->
+<div id="loginModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeLogin">×</span>
+        <h2 class="modal-title">Login</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email Address</label>
+                <input type="email" id="loginEmail" class="validEmail" name="email" required="">
+                <div class="error-message" id="loginEmailError"></div>  <!-- Error message here -->
+            </div>
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" name="password" required="">
+                <span id="passwordError" class="error-message"></span> <!-- Error message for password -->
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+            <div class="form-footer">
+                Don't have an account? <a href="#" id="switchToRegister">Register here</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Registration Modal -->
+<div id="registerModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeRegister">×</span>
+        <h2 class="modal-title">Register Here</h2>
+        <form id="registrationForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required="">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="validEmail" name="email" required="">
+                <div class="error-message" id="emailError"></div> <!-- Error message here -->
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required="">
+                <span id="passwordError" class="error-message"></span> <!-- Error message for password -->
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required="">
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+            <div class="form-footer">
+                Already have an account? <a href="#" id="switchToLogin">Login here</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">About Us</a>
+                <a href="#">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p>© 2023 StreamFinder. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/Login_Registration.js"></script>
+    <script src="js/SpellCheck.js"></script>
+    <script src="js/FrequencyCount.js"></script>
+    <script src="js/PageRanking.js"></script>
+</body>
+</html>
